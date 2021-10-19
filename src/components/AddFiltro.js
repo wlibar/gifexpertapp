@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 /**
  * 
- * Agrega una categoria. 
+ * Agrega un filtro de búsqueda sobreescribiendo el anterior. 
  * Renderiza el formulario con la caja de texto. 
- * Al presionar enter en la caja agrega la categoria al arreglo.
+ * Al presionar enter en la caja agrega el filtro de búsqueda.
  */
-export const AddCategory = ({ setCategories }) => {
+export const AddFiltro = ({ setFiltro }) => {
     const [inputValue, setInputValue] = useState('');
     
     const handleInputChange = (e) => {
@@ -16,23 +16,25 @@ export const AddCategory = ({ setCategories }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (inputValue.trim().length > 2){
-            setCategories( cats => [inputValue,...cats] );
+        //if (inputValue.trim().length > 2){
+            setFiltro( filtro => inputValue );
             setInputValue('');
-        }
+        //}
     };
 
     return (
         <form onSubmit={ handleSubmit }>
             <input 
+                className="form-control mr-sm-2"
                 type="text" 
                 value={ inputValue }
+                placeholder="Busque por periodo (Ej. 2021.1), arquitecturas, tecnologías y presione ENTER"
                 onChange={handleInputChange}
             />
         </form>
     )
 }
 
-AddCategory.propTypes = {
-    setCategories: PropTypes.func.isRequired
+AddFiltro.propTypes = {
+    setFiltro: PropTypes.func.isRequired
 }

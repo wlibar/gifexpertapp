@@ -1,13 +1,14 @@
 import React from 'react';
 
 import ReactDom from 'react-dom';
-import {GifExpertApp} from './GifExpertApp';
+import {App} from './App';
 
 import './index.css';
-
+/**
+ * Punto de entrada del programa
+ */
 ReactDom.render(
-    <GifExpertApp />,
+    <App />,
     document.getElementById('root'),
 );
 
-// snniped rafc
